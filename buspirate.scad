@@ -5,7 +5,7 @@ mil = 25.4/1000;
 // BPv4 dimensions (mm)
 w = 63.5;
 h = 36.84;
-corner_r = 3;
+corner_r = 1;
 hole_ofs = 3.18;
 hole_r = 3.2/2;
 
@@ -154,9 +154,9 @@ echo("M3 cap screw length: ", thk + standoff_h + pcb_thk + top_h + thk - screw_h
 difference() {
     union(){
         color("green") translate([0, h/2 + 5, thk]) case();
-        rotate([180,0,0]) translate([0, -h/2 - 5, -13]) lid();
+        /*rotate([180,0,0])*/ translate([0, -h/2 - 5, 0]) lid();
     }
-    translate([-0,0,-10]) cube([100,60,30]);
+    /* translate([-0,0,-10]) cube([100,60,30]); */
 
 
 }
