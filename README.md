@@ -14,7 +14,12 @@ of the printed case.
 <br>
 ![buspirate03](img/buspirate_openCase.png)
 <br>
+![buspirate04](img/buspirate_all.png)
+<br>
 ![buspirate04](img/buspirate_print.png)
+
+<br>
+<br>
 <br>
 
 # LICENSE
