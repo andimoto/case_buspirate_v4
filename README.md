@@ -5,6 +5,13 @@ Original design comes from here: http://www.thingiverse.com/thing:3230273 by giu
 **WORK IN PROGRESS!**
 This Model for OpenSCAD is not finished and has not been printed by me.
 
+
+<br>
+![1](img/buspirate01.png)
+<br>
+![2](img/buspirate02.png)
+
+
 # LICENSE
 
 <dl>
