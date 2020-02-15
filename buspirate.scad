@@ -174,11 +174,24 @@ module buttons(string="."){
                 r = 10*mil,
                 center = [true, true, false], $fn=18);
                }
-    rotate([0,180,0]) translate([-1.4,-1.4,.8]) text(string,size=3);
+    rotate([0,180,0])
+    translate([-1.2,-1.2,.5])
+    linear_extrude(1) text(string,size=3,font=Font);
 }
 
 module lightGuides(){
-
+    roundedCube4([75*mil + 2*hole_slack,
+          45*mil + 2*hole_slack,
+         top_h-thk],
+         r = 10*mil,
+         center = [true, true, false], $fn=18);
+    translate([0, 0, thk+0.1]) {
+        roundedCube4([100*mil + 2*hole_slack,
+            100*mil + 2*hole_slack,
+            top_h-thk/2-0.1],
+            r = 10*mil,
+            center = [true, true, false], $fn=18);
+    }
 }
 
 
@@ -190,7 +203,11 @@ echo("M3 cap screw length: ", thk + standoff_h + pcb_thk + top_h + thk - screw_h
 /* ############################   MODULES   ############################# */
 /* ###################################################################### */
 /* ###################################################################### */
-
+/*
+call "setForPrint()" to position all parts
+call "builtUp(open=5,cut=true,cutAt=10)" to show bus pirate case
+call "setLightGuidesForPrint()" to set light guides for printing with transparent filament
+*/
 module builtUp(open=5,cut=true,cutAt=10){
 difference() {
     union(){
@@ -198,17 +215,30 @@ difference() {
         color("red") rotate([180,0,180]) translate([-13.1, 9.8, -13-open]) buttons("R");
         translate([0, h/2 + 5, thk]) case();
         rotate([180,0,180]) translate([0, h/2 + 5, -13-open]) lid(name=true);
+        color("white") rotate([180,0,180]) translate([17.15, 40.25, -13-open]) lightGuides();
+        color("white") rotate([180,0,180]) translate([6.35, 40.25, -13-open]) lightGuides();
+        color("white") rotate([180,0,180]) translate([-4.45, 40.25, -13-open]) lightGuides();
+        color("white") rotate([180,0,180]) translate([-15.25, 40.25, -13-open]) lightGuides();
     }
     /* draw cut-through */
     if(cut == true) translate([40-cutAt,-50,-5]) cube([40+cutAt,100,20]);
     }
 }
 
-module setForPrint(){
+module setForPrint(setLightGuides=false){
   rotate([0,180,0]) translate([-13.1, -13.6-40, -(top_h)]) buttons("R");
   rotate([0,180,0]) translate([13.1, -13.6-40, -(top_h)]) buttons("N");
-  translate([0, -25, 0]) lid(name=true);
+  rotate([0,0,180]) translate([0, 25, 0]) lid(name=true);
   translate([0, h/2 + 5, thk]) case();
+  if(setLightGuides==true) translate([0, -65, 0]) setLightGuidesForPrint();
 }
-setForPrint();
-/* builtUp(open=0,cut=true,cutAt=25); */
+
+module setLightGuidesForPrint(){
+    color("white") rotate([180,0,180]) translate([17.15, 0, -(top_h)]) lightGuides();
+    color("white") rotate([180,0,180]) translate([6.35, 0, -(top_h)]) lightGuides();
+    color("white") rotate([180,0,180]) translate([-4.45, 0, -(top_h)]) lightGuides();
+    color("white") rotate([180,0,180]) translate([-15.25, 0, -(top_h)]) lightGuides();
+}
+/* setLightGuidesForPrint(); */
+/* setForPrint(setLightGuides=false); */
+translate([0,50,0]) builtUp(open=0,cut=false,cutAt=25);

@@ -3,14 +3,19 @@ This is a SCAD Model for a Bus Pirate v4.
 Original design comes from here: http://www.thingiverse.com/thing:3230273 by giuliof.
 
 **WORK IN PROGRESS!**
-This Model for OpenSCAD is not finished and has not been printed by me.
+This Model for OpenSCAD has not been printed by me. I will upload photos
+of the printed case.
 
 
 <br>
-![buspirate01](img/buspirate01.png)
+![buspirate01](img/buspirate_closedCase.png)
 <br>
-![buspirate02](img/buspirate02.png)
-
+![buspirate02](img/buspirate_closedCase01.png)
+<br>
+![buspirate03](img/buspirate_openCase.png)
+<br>
+![buspirate04](img/buspirate_print.png)
+<br>
 
 # LICENSE
 
