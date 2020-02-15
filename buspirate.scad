@@ -1,4 +1,9 @@
 include <util.scad>
+/* include <fonts/major_shift3D_03.ttf> */
+
+/* include  */
+FontMajorShift3D02="Major Snafu:style=3D\\_03";
+Font=FontMajorShift3D02;
 
 mil = 25.4/1000;
 
@@ -84,7 +89,7 @@ module case() {
   }
 }
 
-module lid() {
+module lid(name=true) {
   difference() {
     union() {
       roundedCube4([w + 2*slack + 2*thk,
@@ -107,6 +112,11 @@ module lid() {
       }
 
     }
+
+    if(name==true)
+    rotate([180,0,0]) translate([-18,-2.6,-thk-0.1]) linear_extrude(thk+0.2)
+    text("BUSPIRATE4",size=6,font=Font);
+
     // Standoff holes
     for (i = [-1,+1], j=[-1,+1])
       translate([i*(w/2-hole_ofs), j*(h/2-hole_ofs), -1]) {
@@ -149,19 +159,33 @@ module lid() {
   }
 }
 
+module buttons(){
+    /* roundedCube4([5.08,
+                  5.08,
+                  thk+2],
+                 r = 10*mil,
+                 center = [true, true, false], $fn=18); */
+}
+
+
 echo("M3 cap screw length: ", thk + standoff_h + pcb_thk + top_h + thk - screw_h);
 
+
+module builtUp(open=5,cut=true,cutAt=10){
 difference() {
     union(){
-        color("green") translate([0, h/2 + 5, thk]) case();
-        /*rotate([180,0,0])*/ translate([0, -h/2 - 5, 0]) lid();
+        translate([0, h/2 + 5, thk]) case();
+        rotate([180,0,180]) translate([0, h/2 + 5, -13-open]) lid(name=true);
     }
-    /* translate([-0,0,-10]) cube([100,60,30]); */
-
-
+    /* draw cut-through */
+    #if(cut == true) translate([40-cutAt,-50,-5]) cube([40+cutAt,100,20]);
+    }
 }
 /* roundedCube4([5.08,
               5.08,
               thk+2],
              r = 10*mil,
              center = [true, true, false], $fn=18); */
+
+lid(name=true);
+/* #builtUp(open=10,cut=false,cutAt=20); */
