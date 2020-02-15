@@ -240,5 +240,5 @@ module setLightGuidesForPrint(){
     color("white") rotate([180,0,180]) translate([-15.25, 0, -(top_h)]) lightGuides();
 }
 /* setLightGuidesForPrint(); */
-/* setForPrint(setLightGuides=false); */
+setForPrint(setLightGuides=true);
 translate([0,50,0]) builtUp(open=0,cut=false,cutAt=25);
