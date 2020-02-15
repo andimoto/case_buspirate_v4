@@ -1,7 +1,11 @@
 # Case for Bus Pirate v4
 This is a SCAD Model for a Bus Pirate v4. 
-Original design comes from here: http://www.thingiverse.com/thing:3230273 by giuliof.
-
+Original design comes from here: 
+<br>
+https://www.thingiverse.com/thing:431167 by spapadim
+<br>
+http://www.thingiverse.com/thing:3230273 by giuliof
+<br>
 **WORK IN PROGRESS!**
 This Model for OpenSCAD has not been printed by me. I will upload photos
 of the printed case.
