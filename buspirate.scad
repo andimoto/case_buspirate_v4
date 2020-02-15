@@ -114,7 +114,7 @@ module lid(name=true) {
     }
 
     if(name==true)
-    rotate([180,0,0]) translate([-18,-2.6,-thk-0.1]) linear_extrude(thk+0.2)
+    rotate([180,0,180]) translate([-32,-2.6,-thk-0.1]) linear_extrude(thk+0.2)
     text("BUSPIRATE4",size=6,font=Font);
 
     // Standoff holes
@@ -159,33 +159,56 @@ module lid(name=true) {
   }
 }
 
-module buttons(){
-    /* roundedCube4([5.08,
-                  5.08,
-                  thk+2],
+module buttons(string="."){
+  union(){
+    translate([0,0,-1])
+    roundedCube4([4.8,
+                  4.8,
+                 top_h+1],
                  r = 10*mil,
-                 center = [true, true, false], $fn=18); */
+                 center = [true, true, false], $fn=18);
+    translate([0,0,thk+thk/3])
+    roundedCube4([6,
+                 6,
+                top_h-thk-thk/3],
+                r = 10*mil,
+                center = [true, true, false], $fn=18);
+               }
+    rotate([0,180,0]) translate([-1.4,-1.4,.8]) text(string,size=3);
+}
+
+module lightGuides(){
+
 }
 
 
 echo("M3 cap screw length: ", thk + standoff_h + pcb_thk + top_h + thk - screw_h);
 
 
+/* ###################################################################### */
+/* ###################################################################### */
+/* ############################   MODULES   ############################# */
+/* ###################################################################### */
+/* ###################################################################### */
+
 module builtUp(open=5,cut=true,cutAt=10){
 difference() {
     union(){
+        color("blue") rotate([180,0,180]) translate([13.1, 9.8, -13-open]) buttons("N");
+        color("red") rotate([180,0,180]) translate([-13.1, 9.8, -13-open]) buttons("R");
         translate([0, h/2 + 5, thk]) case();
         rotate([180,0,180]) translate([0, h/2 + 5, -13-open]) lid(name=true);
     }
     /* draw cut-through */
-    #if(cut == true) translate([40-cutAt,-50,-5]) cube([40+cutAt,100,20]);
+    if(cut == true) translate([40-cutAt,-50,-5]) cube([40+cutAt,100,20]);
     }
 }
-/* roundedCube4([5.08,
-              5.08,
-              thk+2],
-             r = 10*mil,
-             center = [true, true, false], $fn=18); */
 
-lid(name=true);
-/* #builtUp(open=10,cut=false,cutAt=20); */
+module setForPrint(){
+  rotate([0,180,0]) translate([-13.1, -13.6-40, -(top_h)]) buttons("R");
+  rotate([0,180,0]) translate([13.1, -13.6-40, -(top_h)]) buttons("N");
+  translate([0, -25, 0]) lid(name=true);
+  translate([0, h/2 + 5, thk]) case();
+}
+setForPrint();
+/* builtUp(open=0,cut=true,cutAt=25); */
