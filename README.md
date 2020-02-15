@@ -7,9 +7,9 @@ This Model for OpenSCAD is not finished and has not been printed by me.
 
 
 <br>
-![1](img/buspirate01.png)
+![buspirate01](img/buspirate01.png)
 <br>
-![2](img/buspirate02.png)
+![buspirate02](img/buspirate02.png)
 
 
 # LICENSE
