@@ -186,7 +186,7 @@ module lightGuides(){
          r = 10*mil,
          center = [true, true, false], $fn=18);
     translate([0, 0, thk+0.1]) {
-        roundedCube4([100*mil + 2*hole_slack,
+        roundedCube4([75*mil + 2*hole_slack,
             100*mil + 2*hole_slack,
             top_h-thk/2-0.1],
             r = 10*mil,
@@ -230,14 +230,14 @@ module setForPrint(setLightGuides=false){
   rotate([0,180,0]) translate([13.1, -13.6-40, -(top_h)]) buttons("N");
   rotate([0,0,180]) translate([0, 25, 0]) lid(name=true);
   translate([0, h/2 + 5, thk]) case();
-  if(setLightGuides==true) translate([0, -65, 0]) setLightGuidesForPrint();
+  if(setLightGuides==true) translate([0, -75, 0]) setLightGuidesForPrint();
 }
 
 module setLightGuidesForPrint(){
-    color("white") rotate([180,0,180]) translate([17.15, 0, -(top_h)]) lightGuides();
-    color("white") rotate([180,0,180]) translate([6.35, 0, -(top_h)]) lightGuides();
-    color("white") rotate([180,0,180]) translate([-4.45, 0, -(top_h)]) lightGuides();
-    color("white") rotate([180,0,180]) translate([-15.25, 0, -(top_h)]) lightGuides();
+    color("white") rotate([0,90,0]) translate([-(75*mil + 2*hole_slack)/2, 20, -(top_h)]) lightGuides();
+    color("white") rotate([0,90,0]) translate([-(75*mil + 2*hole_slack)/2, 10, -(top_h)]) lightGuides();
+    color("white") rotate([0,90,0]) translate([-(75*mil + 2*hole_slack)/2, 0, -(top_h)]) lightGuides();
+    color("white") rotate([0,90,0]) translate([-(75*mil + 2*hole_slack)/2, -10, -(top_h)]) lightGuides();
 }
 /* setLightGuidesForPrint(); */
 setForPrint(setLightGuides=true);
