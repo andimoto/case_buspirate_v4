@@ -22,7 +22,7 @@ Note: Case for Version 3.6 is buspirate_v36.scad
 This Model for OpenSCAD has not been printed by me. I will upload photos
 of the printed case.
 
-<br>
+
 ![buspirate01](img/buspirateClosedCase.png)
 <br>
 ![buspirate02](img/buspirateClosedCase01.png)
