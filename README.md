@@ -23,17 +23,17 @@ This Model for OpenSCAD has not been printed by me. I will upload photos
 of the printed case.
 
 <br>
-![buspirate01](/img/buspirate_closedCase.png)
+![buspirate01](img/buspirateClosedCase.png)
 <br>
-![buspirate02](/img/buspirate_closedCase01.png)
+![buspirate02](img/buspirateClosedCase01.png)
 <br>
-![buspirate03](/img/buspirate_openCase.png)
+![buspirate03](img/buspirateOpenCase.png)
 <br>
-![buspirate04](/img/buspirate_all.png)
+![buspirate04](img/buspirateAll.png)
 <br>
-![buspirate04](/img/buspirate_print.png)
+![buspirate04](img/buspiratePrint.png)
 <br>
-![buspirate04](/img/buspirate_v36.png)
+![buspirate36](img/buspirateV36.png)
 
 <br>
 <br>
