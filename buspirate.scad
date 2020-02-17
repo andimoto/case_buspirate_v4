@@ -74,7 +74,7 @@ module case() {
       // Standoffs
       for (i = [-1,+1], j=[-1,+1])
         translate([i*(w/2-hole_ofs), j*(h/2-hole_ofs), -thk])
-          cylinder(r = hole_r + hole_slack + standoff_thk,
+          cylinder(r = hole_r + hole_slack + standoff_thk + 1.5,
                    h = thk + standoff_h, $fn=27);
     }
     // Standoff holes
@@ -241,4 +241,4 @@ module setLightGuidesForPrint(){
 }
 /* setLightGuidesForPrint(); */
 setForPrint(setLightGuides=true);
-translate([0,50,0]) builtUp(open=0,cut=false,cutAt=25);
+translate([0,50,0]) builtUp(open=4,cut=false,cutAt=25);
