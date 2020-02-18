@@ -24,7 +24,7 @@ pcb_thk = 1.6;
 nut_d = 6.1 + 0.5;  // M3
 nut_h = 2.25;  // M3 (normal: 2.25mm; jam nut: 1.8mm)
 screw_d = 5.55 + 0.30;  // M3 cap
-screw_h = 2.9 + 0.2;  // M3 cap
+screw_h = 2.5;// + 0.2;  // M3 cap
 
 // Case parameters
 thk = 2;
@@ -114,15 +114,15 @@ module lid(name=true) {
     }
 
     if(name==true)
-    rotate([180,0,180]) translate([-32,-2.6,-thk-0.1]) linear_extrude(thk+0.2)
-    text("BUSPIRATE4",size=6,font=Font);
+      rotate([180,0,180]) translate([-32,-2.6,-thk-0.1]) linear_extrude(thk+0.2)
+      text("BUSPIRATE4",size=6,font=Font);
 
     // Standoff holes
     for (i = [-1,+1], j=[-1,+1])
       translate([i*(w/2-hole_ofs), j*(h/2-hole_ofs), -1]) {
         cylinder(r = hole_r + hole_slack,
                  h = thk + top_h + 2, $fn=27);
-        cylinder(r = screw_d/2 + hole_slack, h = 1 + screw_h, $fn=27);
+        cylinder(r = screw_d/2 + hole_slack, h = screw_h, $fn=27);
       }
     // ICSP header hole (center is 2.54mm from board edge)
     translate([1.24/2 - 1.24,  -h/2 + 2.54, -1])
@@ -134,8 +134,8 @@ module lid(name=true) {
                    $fn = 18);
     // Main header hole (center is 7.6mm from board edge)
     translate([-w/2 + 7.6,  0, -1])
-      roundedCube4([350*mil + 2*hole_slack,
-                    900*mil + 2*hole_slack,
+      roundedCube4([360*mil + 2*hole_slack,
+                    910*mil + 2*hole_slack,
                     thk + 2],
                    r = 10*mil,
                    center = [true, true, false],
@@ -143,16 +143,16 @@ module lid(name=true) {
     // LED holes (0805 chip, 1.4mm (1.6, bonus) from top edge, spaced 10.8mm)
     for (i = [-3, -1, +1, +3])
       translate([i*10.8/2 + 1.91/2, h/2 - 1.6, -1])
-        roundedCube4([80*mil + 2*hole_slack,
-                      50*mil + 2*hole_slack,
+        roundedCube4([85*mil + 2*hole_slack,
+                      55*mil + 2*hole_slack,
                       thk+2],
                      r = 10*mil,
                      center = [true, true, false], $fn=18);
     // Button holes
     for (i = [-1, +1])
       translate([i*13.08, -h/2 + 4.83, -1])
-        roundedCube4([5.08,
-                      5.08,
+        roundedCube4([5.10,
+                      5.10,
                       thk+2],
                      r = 10*mil,
                      center = [true, true, false], $fn=18);
@@ -160,10 +160,10 @@ module lid(name=true) {
 }
 
 module buttons(string="."){
-  union(){
+    union(){
     translate([0,0,-1])
-    roundedCube4([4.8,
-                  4.8,
+    roundedCube4([4.5,
+                  4.5,
                  top_h+1],
                  r = 10*mil,
                  center = [true, true, false], $fn=18);
@@ -173,10 +173,10 @@ module buttons(string="."){
                 top_h-thk-thk/3],
                 r = 10*mil,
                 center = [true, true, false], $fn=18);
-               }
+    }
     rotate([0,180,0])
-    translate([-1.2,-1.2,.5])
-    linear_extrude(1) text(string,size=3,font=Font);
+    translate([-2,-1.9,.5])
+    linear_extrude(1) text(string,size=4.5,font=Font);
 }
 
 module lightGuides(){
@@ -239,6 +239,10 @@ module setLightGuidesForPrint(){
     color("white") rotate([0,90,0]) translate([-(75*mil + 2*hole_slack)/2, 0, -(top_h)]) lightGuides();
     color("white") rotate([0,90,0]) translate([-(75*mil + 2*hole_slack)/2, -10, -(top_h)]) lightGuides();
 }
+/* difference(){
+  lid(name=true);
+  translate([10,0,0]) cube([40,60,15],center=true);
+} */
 /* setLightGuidesForPrint(); */
 setForPrint(setLightGuides=true);
 translate([0,50,0]) builtUp(open=4,cut=false,cutAt=25);
