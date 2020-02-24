@@ -18,11 +18,7 @@ Note: Case for Version 3.6 is buspirate_v36.scad
 - call "setLightGuidesForPrint()" to set light guides for printing with transparent filament
 
 
-**WORK IN PROGRESS!**
-This Model for OpenSCAD has not been printed by me. I will upload photos
-of the printed case.
-
-
+<br>
 ![buspirate01](img/buspirateClosedCase.png)
 <br>
 ![buspirate02](img/buspirateClosedCase01.png)
@@ -34,7 +30,19 @@ of the printed case.
 ![buspirate04](img/buspiratePrint.png)
 <br>
 ![buspirate36](img/buspirateV36.png)
-
+<br>
+<br>
+![img](img/IMG01.jpg)
+<br>
+![img](img/IMG02.jpg)
+<br>
+![img](img/IMG03.jpg)
+<br>
+![img](img/IMG04.jpg)
+<br>
+![img](img/IMG05.jpg)
+<br>
+![img](img/IMG06.jpg)
 <br>
 <br>
 <br>
