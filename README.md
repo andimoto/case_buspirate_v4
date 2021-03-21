@@ -1,6 +1,6 @@
 # Case for Bus Pirate v4 (and v3.6)
-This is a SCAD Model for a Bus Pirate v4 (and v3.6). I added buttons and lightguides. 
-Original design comes from here: 
+This is a SCAD Model for a Bus Pirate v4 (and v3.6). I added buttons and lightguides.
+Original design comes from here:
 <br>
 for BusPirate v4: https://www.thingiverse.com/thing:431167 by spapadim
 <br>
@@ -9,7 +9,7 @@ for BusPirate v4 http://www.thingiverse.com/thing:3230273 by giuliof
 for BusPirate v3.6 https://www.thingiverse.com/thing:102133 by foosel
 <br>
 
-Note: Case for Version 3.6 is buspirate_v36.scad 
+Note: Case for Version 3.6 is buspirate_v36.scad
 
 ## Usage
 
@@ -18,33 +18,31 @@ Note: Case for Version 3.6 is buspirate_v36.scad
 - call "setLightGuidesForPrint()" to set light guides for printing with transparent filament
 
 
-<br>
 ![buspirate01](img/buspirateClosedCase.png)
-<br>
+
 ![buspirate02](img/buspirateClosedCase01.png)
-<br>
+
 ![buspirate03](img/buspirateOpenCase.png)
-<br>
+
 ![buspirate04](img/buspirateAll.png)
-<br>
+
 ![buspirate04](img/buspiratePrint.png)
-<br>
+
 ![buspirate36](img/buspirateV36.png)
-<br>
-<br>
+
 ![img](img/IMG01.jpg)
-<br>
+
 ![img](img/IMG02.jpg)
-<br>
+
 ![img](img/IMG03.jpg)
-<br>
+
 ![img](img/IMG04.jpg)
-<br>
+
 ![img](img/IMG05.jpg)
-<br>
+
 ![img](img/IMG06.jpg)
-<br>
-<br>
+
+
 <br>
 
 # LICENSE
